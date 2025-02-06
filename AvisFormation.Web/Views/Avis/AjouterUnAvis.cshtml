@@ -1,0 +1,41 @@
+﻿@model AvisFormation.Data.Avis
+@{
+    ViewBag.Title = "AjouterUnAvis";
+}
+
+<h2 class="text-center my-4">Ajouter un Avis</h2>
+
+<div class="container">
+    <form method="post" action="/Avis/AjouterUnAvis" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="titreAvis" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="titreAvis" name="Nom" placeholder="Entrez votre nom" required>
+            <div class="invalid-feedback">Veuillez entrer votre nom.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="noteAvis" class="form-label">Note</label>
+            <select class="form-select" id="noteAvis" name="Note" required>
+                <option value="" disabled selected>Choisissez une note</option>
+                <option value="1">1 - Très mauvais</option>
+                <option value="2">2 - Mauvais</option>
+                <option value="3">3 - Moyen</option>
+                <option value="4">4 - Bon</option>
+                <option value="5">5 - Excellent</option>
+            </select>
+            <div class="invalid-feedback">Veuillez choisir une note.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="Description" class="form-label">Commentaire</label>
+            <textarea class="form-control" id="Description" name="Description" rows="5" placeholder="Entrez votre commentaire" required></textarea>
+            <div class="invalid-feedback">Veuillez entrer un commentaire.</div>
+        </div>
+        <input type="hidden" value="asp-net-mvc" name="NomSeo"/>
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">Soumettre</button>
+        </div>
+    </form>
+</div>
+
+

@@ -1,0 +1,37 @@
+﻿@model AvisFormation.Data.Formation
+@{
+    ViewBag.Title = "DetailsFormation";
+}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Nom</h5>
+        <p class="card-text">@Model.Description</p>
+        <a href="@Model.Url" class="btn btn-outline-success">Lien de la formation</a>
+        <a href="#" class="btn btn-primary">Ajouter un avis</a>
+    </div>
+</div>
+<h3>Avis des utilisateurs</h3>
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+        @foreach (var avis in Model.Avis)
+        {
+
+           <li class="list-group-item">
+               <p class="fw-bold text-primary">@avis.Nom <span>- @avis.DateAvis</span></p>
+               <p>
+                   @avis.Description @avis.Note/5
+                   @for (var i = 0; i < avis.Note; i++)
+                   {
+                       <i style="color : blue" class="fa-solid fa-star"></i>
+                   }
+
+                   @for (var i = 0; i < 5 - avis.Note; i++)
+                   {
+                       <i style="color : blue" class="fa-regular fa-star"></i>
+                   }
+               </p>
+               <p></p>
+           </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,23 @@
+﻿@model List<AvisFormation.Web.ViewModels.ToutesLesFormationsViewModel>
+@{
+    ViewBag.Title = "ToutesLesFormations";
+}
+
+<h2>Toutes Les Formations</h2>
+<div class="row my-3">
+    @foreach (var f in Model)
+    {
+<div class="col-md-3 my-2 d-flex align-items">
+    <div class="card" style="width: 100%;">
+        <img src="~/Content/Images/Formation.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@f.Nom</h5>
+            <p class="card-text text-truncate" style="max-height: 3rem;">
+                @f.Description
+            </p>
+           <a href="~/Formation/DetailsFormation?nomseo=@f.NomSeo" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+</div>
+}
+</div>
